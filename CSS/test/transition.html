@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #btn {
+        width: 100px;
+        height: 100px;
+        background: blue;
+        transition: 2s;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="btn"></div>
+    <script type="text/javascript">
+      let control = false;
+      let btn = document.getElementById("btn");
+      console.log(btn);
+      btn.onclick = function () {
+        if (!control) {
+          btn.style.cssText = "width: 200px; height: 200px; background: yellow";
+        } else {
+          btn.style.cssText = "width: 100px; height: 100px; background: blue";
+        }
+        control = !control;
+      };
+    </script>
+  </body>
+</html>

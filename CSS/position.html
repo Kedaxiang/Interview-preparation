@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .outer {
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+            position: relative;
+            z-index: -5;
+            overflow: hidden;
+        }
+        .inner {
+            width: 250px;
+            height: 250px;
+            background-color: yellow;
+            position: absolute;
+            top: -10px;
+            z-index: -10;
+        }
+        .inner-text {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .wrapper {
+            overflow: hidden;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="outer">
+        <div class="wrapper">
+            <div class="inner"></div>
+        </div>
+        
+        <div class="inner-text">
+            我在inner下方
+        </div>
+    </div>
+</body>
+</html>

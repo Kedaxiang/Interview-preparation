@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* .container {
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-bottom: 50px;
+        }
+        
+        .box1 {
+            height: 20px;
+            margin: 10px 0;
+            background-color: green;
+        }
+        
+        .box2 {
+            height: 20px;
+            margin: 20px 0;
+            background-color: green;
+        }
+
+        .wrapper {
+            overflow: hidden;
+        } */
+
+
+
+        .column {
+            height: 100%;
+        }
+
+        .column:nth-of-type(1) {
+            float: left;
+            width: 200px;
+            margin-right: 10px;
+            background-color: red;
+        }
+        
+        .column:nth-of-type(2) {
+            overflow: hidden; /* 创建bfc */
+            background-color: purple;
+        }
+
+        .left {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        
+        p {
+            background-color: green;
+            overflow: hidden;
+        }
+    </style>    
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+
+    <div class="container">
+        <div class="wrapper">
+            <div class="box1"></div>
+        </div>
+        <div class="box2"></div>
+    </div> -->
+
+
+
+    <div class="column"></div>
+    <div class="column">
+        <div class="left"></div>
+        <p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好
+        你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好
+        你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好
+        </p>
+    </div>
+</body>
+</html>

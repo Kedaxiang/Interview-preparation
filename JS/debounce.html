@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click me</button>
+    <script type="text/javascript">
+        function debounce(event ,time) {
+            let timer = null;
+            return function(...args) {
+                clearTimeout(timer)
+                timer = setTimeout(() => {
+                    event.call(this, ...args)
+                }, time)
+            }
+        }
+        var a = 'window'
+        let debounceLog = debounce(test, 1000)
+        document.getElementById('btn').onclick = function() {
+            debounceLog(1, 2, 3)
+            console.log(this);
+        }   
+        function test(a, b, c) {
+            console.log(this.a);
+            console.log(a, b, c);
+        }
+    </script>
+</body>
+</html>

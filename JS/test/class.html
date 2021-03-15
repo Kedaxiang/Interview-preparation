@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      class Point {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+      }
+      const point = new Point();
+      const point2 = new Point();
+
+      console.log("point.constructor === Point: ", point.constructor === Point);
+      console.log(
+        "Point === Point.prototype.constructor: ",
+        Point === Point.prototype.constructor
+      );
+      console.log("point instanceof Point: ", point instanceof Point);
+      console.log(point.prototype === point2.prototype);
+      console.log(point.__proto__ === Point.prototype);
+      console.log(point.__proto__.__proto__ === Point.prototype.__proto__);
+      // Point(); // 不使用new，直接使用Point构造函数会报错
+    </script>
+  </body>
+</html>

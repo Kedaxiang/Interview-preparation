@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <video
+      src="https://vd3.bdstatic.com/mda-mairdvq6uahrdeyw/v1-cae/1080p/mda-mairdvq6uahrdeyw.mp4?v_from_s=hkapp-haokan-hna&auth_key=1615391564-0-0-bd4a86dc585e54f1f4a227699cfd0fa1&bcevod_channel=searchbox_feed&pd=1&pt=3&abtest="
+    ></video>
+    <script type="text/javascript">
+      let arr1 = [0, 1, 2];
+      let arr2 = [3, 4, 5];
+      let arr3 = [6, 7, 8];
+
+      //1. push(val): 向数组末尾添加一个元素
+      //2. pop(): 去除数组最末尾的元素
+      //3. unshift(val): 向数组头部添加一个元素
+      //4. shift(): 去除数组第一个元素
+      //5. arr1.concat(arr2): 连接两个及以上数组
+      let arr = arr1.concat(arr2, arr3);
+      console.log(arr); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      //6. splice(index, num, ...args): 删除元素的索引，删除个数，添加的元素
+      // arr.splice(3, 1, -1, -2, -3);
+      // console.log(arr);
+      //7. every((val, index, arr)) 如果全部元素符合条件，返回true
+      // console.log(arr.every((item, index, arr) => item < 10)); // true
+      //8. some
+      // console.log(arr.some((item) => item < 0)); //false
+      //9. filter
+      // console.log(arr.filter((item) => item >= 4)); //[4, 5, 6, 7, 8]
+      //10. map
+      // console.log(arr.map((item) => item + 1)); // [1, 2, 3, 4, 5, 6, 7, 8 ,9]
+      //11. forEach: 遍历器
+      // arr.forEach((item) => console.log(item)); // 0 1 2 3 4 5 6 7 8
+      //12. reduce
+      arr.reduce((prev, curr, index, arr) => {
+        console.log(prev, curr, index, arr);
+        return (prev = curr);
+      });
+      //13. sort
+      // console.log(arr.sort((a, b) => ));
+    </script>
+  </body>
+</html>

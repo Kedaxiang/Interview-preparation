@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        const num = 123;
+        const string = '123';
+        const boolean = true;
+        const obj = {
+            val: 123
+        }
+        const func = function func(params) {
+            console.log(params);
+        }
+        const notval = null;
+        const unval = undefined;
+        const symbol = Symbol(123)
+        const date = new Date()
+        const error = new Error()
+        const exp = new RegExp();
+
+
+        console.log('-----------------typeof------------------')
+        console.log(typeof num);     // number
+        console.log(typeof string);  // string
+        console.log(typeof boolean); // boolean
+        console.log(typeof obj);     // object
+        console.log(typeof func);    // function
+        console.log(typeof notval);  // object
+        console.log(typeof unval);   // undefined
+        console.log(typeof symbol);  // symbol
+        console.log(typeof date);    // object
+        console.log(typeof error);   // object
+        console.log(typeof exp);     // object
+
+        console.log('-----------------toString----------------')
+        console.log(Object.prototype.toString.call(''));   // [object String]
+        console.log(Object.prototype.toString.call(1));    // [object Number]
+        console.log(Object.prototype.toString.call(true)); // [object Boolean]
+        console.log(Object.prototype.toString.call(Symbol())); //[object Symbol]
+        console.log(Object.prototype.toString.call(undefined)); // [object Undefined]
+        console.log(Object.prototype.toString.call(null)); // [object Null]
+        console.log(Object.prototype.toString.call(new Function())); // [object Function]
+        console.log(Object.prototype.toString.call(new Date())); // [object Date]
+        console.log(Object.prototype.toString.call([])); // [object Array]
+        console.log(Object.prototype.toString.call(new RegExp())); // [object RegExp]
+        console.log(Object.prototype.toString.call(new Error())); // [object Error]
+        console.log(Object.prototype.toString.call(document)); // [object HTMLDocument]
+        console.log(Object.prototype.toString.call(window)); //[object global] window 是全局对象 global 的引用
+    </script>
+</body>
+
+</html>

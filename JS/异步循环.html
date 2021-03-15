@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        const sleep = (time, item) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(item)
+                }, time)
+            })
+        }
+
+        const start = async function () {
+            // 每一次循环都代表着新一轮的事件循环
+            for (let i = 0; i < 6; i++) {
+                console.log('循环开始' + i);
+                let result = await sleep(1000, i);
+                console.log(result);
+            }
+            // 宏任务最后执行，即便设置了1s后执行
+            setTimeout(() => {
+                console.log('inner setTimeout1');
+            }, 1000)
+        };
+        // 在此之前没有微任务，所以第三个执行
+        setTimeout(() => {
+            console.log('outer setTimeout1');
+        }, 1000)
+
+        console.log('log start')
+
+        start()
+
+        setTimeout(() => {
+            console.log('outer setTimeout2');
+        }, 1000)
+    </script>
+</body>
+
+</html>

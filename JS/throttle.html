@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click me!</button>
+    <script type="text/javascript">
+        /**
+         *  节流：无论进行多少操作，只在单位时间内操作一次 
+         */
+        function throttle(event, time) {
+            let timer = null;
+            return function(...args) {
+                if(!timer) {
+                    timer = setTimeout(() => {
+                        timer = null;
+                        event.call(this, ...args)
+                    }, time)
+                }
+            } 
+        }
+       
+
+
+        function Test(a, b, c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+        Test.prototype.toString = function () {
+            let {a, b, c} = this;
+            console.log(a, b, c);
+        }
+
+        Test.prototype.throttleLog = throttle(Test.prototype.toString, 1000)
+
+        let test = new Test(1, 2, 3)
+        document.getElementById('btn').onclick = function() {
+            test.throttleLog()
+        }   
+        
+
+
+        // -------------------------这里在测试属性-------------------------------
+        console.log(Test.prototype.hasOwnProperty('toString'));
+        console.log(Object.getOwnPropertyNames(Test.prototype));
+        console.log(Object.keys(Test.prototype));
+
+        class OtherTest {
+            constructor(a) {
+                this.a = a;
+            }
+
+            toString() {
+                console.log(this.a);
+            }
+        }
+
+        let o1 = new OtherTest(1);
+        let o2 = new OtherTest(2);
+
+        console.log('o1 == o2:',  o1 == o2);
+
+        console.log(OtherTest.prototype.hasOwnProperty('toString'));
+        console.log(Object.getOwnPropertyNames(OtherTest.prototype));
+        console.log(Object.keys(OtherTest.prototype));  // class属性不可枚举
+    </script>
+</body>
+</html>

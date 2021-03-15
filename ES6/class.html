@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class Point {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            toString() {
+                return 'father'
+            }
+        }
+
+        let point = new Point();
+
+        console.log(point.constructor === Point);
+        console.log(Point.prototype.constructor === Point);
+        console.log(point.__proto__ === Point.prototype);
+        console.log(point.prototype);
+        console.log(Point.prototype.__proto__ === Object.prototype);
+        console.log(Point.__proto__ === Function.prototype);
+        
+        console.log(typeof point)
+
+        class ColorPoint extends Point {
+            constructor(x, y, color) {
+                super(x, y);
+                this.color = color;
+            }
+
+            toString() {
+                return `${this.color}, ${super.toString()}`
+            }
+        }
+
+        let colorPoint = new ColorPoint(1, 2, 'yellow')
+        console.log(colorPoint.toString()); // yellow, father
+    </script>
+</body>
+</html>
